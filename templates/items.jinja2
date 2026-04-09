@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Items</title>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 0 16px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; }
+    th { background: #f4f4f4; }
+    a { color: #0066cc; }
+    pre { margin: 0; white-space: pre-wrap; word-break: break-word; }
+  </style>
+</head>
+<body>
+  <h1>Items</h1>
+  {% if items %}
+  <table>
+    <thead>
+      <tr><th>ID</th><th>Config</th></tr>
+    </thead>
+    <tbody>
+      {% for item in items %}
+      <tr>
+        <td><a href="{{ url_for('get_item_html', item_id=item.id) }}">{{ item.id }}</a></td>
+        <td><pre>{{ item.config | tojson(indent=2) }}</pre></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>No items found.</p>
+  {% endif %}
+    <p>admin is the username, is hidden? {{ helper('secret') }}</p>
+</body>
+</html>

@@ -1,0 +1,19 @@
+GET http://localhost:5000/items
+
+### GET ALL in Html
+GET http://localhost:5000/items/html
+
+
+###
+POST http://localhost:5000/items
+Content-Type: application/json
+
+{
+    "config": {
+        "name": "Item 1",
+        "description": "This is item 1"
+    }
+}
+
+###
+DELETE http://localhost:5000/items/1
