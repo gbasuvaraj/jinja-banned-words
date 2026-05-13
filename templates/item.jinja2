@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Item {{ item.id }}</title>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 0 16px; }
+    pre { background: #f4f4f4; padding: 16px; border-radius: 4px; white-space: pre-wrap; word-break: break-word; }
+    a { color: #0066cc; }
+  </style>
+</head>
+<body>
+  <p><a href="{{ url_for('list_items_html') }}">&larr; Back to list</a></p>
+  <h1>Item {{ item.id }}</h1>
+  <h2>Config</h2>
+  <pre>{{ item.config | tojson(indent=2) }}</pre>
+</body>
+</html>
